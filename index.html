@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GRAVION GRC &amp; Management Systems™ — We Build Systems That Work</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Inter:wght@400;500;600&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red-deep:#8f0f1f;
+    --red:#a91324;
+    --red-bright:#c41230;
+    --gold:#d4a038;
+    --gold-bright:#f2d06b;
+    --ink:#0b0d12;
+    --charcoal:#1c1c1e;
+    --grey-mid:#6b6b6e;
+    --grey-line:#dcdcda;
+    --grey-bg:#f3f2f0;
+    --off-white:#faf9f7;
+    --white:#ffffff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter','Tajawal',sans-serif;
+    color:var(--ink);
+    background:var(--off-white);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.wordmark,.en-text{font-family:'Manrope',sans-serif;}
+  .ar{font-family:'Tajawal',sans-serif;}
+  a{color:inherit;text-decoration:none;}
+  img,svg{display:block;max-width:100%;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+  ::selection{background:var(--gold);color:#000;}
+  :focus-visible{outline:2px solid var(--gold-bright);outline-offset:3px;}
+
+  /* ---------- Nav Header Animations ---------- */
+  header{
+    position:sticky;top:0;z-index:100;
+    background:rgba(250,249,247,0.92);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--grey-line);
+    transition:all .35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  header.scrolled{
+    box-shadow:0 12px 32px -16px rgba(0,0,0,0.12);
+    background:rgba(250,249,247,0.98);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;height:76px;transition:height .35s ease;}
+  header.scrolled .nav{height:64px;}
+  
+  .brand{display:flex;align-items:center;gap:12px;direction:ltr;}
+  .brand .logo-mark{width:42px;height:42px;transition:transform .6s cubic-bezier(.34,1.56,.64,1);}
+  .brand:hover .logo-mark{transform:rotate(120deg) scale(1.1);}
+  .brand-text{display:flex;flex-direction:column;line-height:1.1;}
+  .brand .wordmark{font-weight:800;font-size:1.1rem;letter-spacing:0.04em;color:var(--ink);}
+  .brand .wordmark span{color:var(--gold);}
+  .brand .sub-tag{font-size:0.58rem;letter-spacing:0.12em;font-weight:700;color:var(--grey-mid);text-transform:uppercase;}
+  
+  .nav-links{display:flex;gap:28px;font-size:0.88rem;font-weight:600;}
+  .nav-links a{color:var(--charcoal);opacity:0.8;transition:all .25s ease;position:relative;}
+  .nav-links a::after{
+    content:"";position:absolute;right:0;bottom:-6px;width:0;height:2px;background:var(--gold);
+    transition:width .3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .nav-links a:hover::after{width:100%;left:0;right:auto;}
+  .nav-links a:hover{opacity:1;color:var(--ink);}
+  
+  .nav-cta{
+    background:var(--ink);color:var(--white);
+    padding:11px 22px;border-radius:2px;
+    font-size:0.82rem;font-weight:600;
+    border:1px solid var(--ink);
+    transition:all .3s ease;
+    position:relative;overflow:hidden;isolation:isolate;
+  }
+  .nav-cta:hover{background:var(--gold);border-color:var(--gold);color:#000;transform:translateY(-2px);box-shadow:0 6px 16px rgba(212,160,56,0.3);}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;overflow:hidden;
+    background:var(--ink);
+    color:var(--white);
+    padding:120px 0 100px;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:radial-gradient(560px circle at var(--mx,30%) var(--my,30%), rgba(212,160,56,0.18), transparent 62%);
+    transition:opacity .4s ease;
+  }
+  .hero-mark{
+    position:absolute;
+    left:-140px;top:50%;transform:translateY(-50%);
+    width:640px;height:640px;opacity:0.12;
+    animation:spin 90s linear infinite;
+    z-index:0;
+  }
+  @keyframes spin{to{transform:translateY(-50%) rotate(360deg);}}
+  @media (prefers-reduced-motion: reduce){.hero-mark{animation:none;}}
+  .hero-inner{position:relative;z-index:2;max-width:820px;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:0.82rem;letter-spacing:0.15em;text-transform:uppercase;
+    color:#cfcfcf;margin-bottom:24px;font-weight:700;direction:ltr;
+  }
+  .eyebrow .dot{width:6px;height:6px;background:var(--gold-bright);border-radius:50%;animation:pulse 2.2s ease-in-out infinite;}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(1.4);}}
+  
+  .hero h1{
+    font-size:clamp(2.4rem, 5vw, 4rem);
+    font-weight:800;line-height:1.1;letter-spacing:-0.01em;
+    margin-bottom:20px;direction:ltr;text-align:left;
+  }
+  .hero h1 .accent{color:var(--gold-bright);}
+  
+  .hero p.ar-lead{
+    font-size:1.3rem;color:#ffffff;max-width:720px;margin-bottom:14px;font-weight:700;line-height:1.5;
+  }
+  .hero p.lead{
+    font-size:1.05rem;color:#b8b8b6;max-width:720px;margin-bottom:38px;direction:ltr;text-align:left;line-height:1.6;
+  }
+  
+  .hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:48px;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:14px 28px;font-size:0.92rem;font-weight:700;
+    border-radius:2px;transition:all .3s cubic-bezier(0.16, 1, 0.3, 1);cursor:pointer;
+    position:relative;overflow:hidden;isolation:isolate;
+  }
+  .btn-primary{background:var(--gold);color:#000;}
+  .btn-primary:hover{background:var(--gold-bright);box-shadow:0 10px 26px -10px rgba(212,160,56,0.55);transform:translateY(-3px);}
+  .btn-ghost{border:1px solid rgba(255,255,255,0.3);color:var(--white);}
+  .btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,0.08);transform:translateY(-3px);}
+  
+  .hero-tagline{
+    font-size:1.05rem;letter-spacing:0.02em;color:#eee;
+    border-top:1px solid rgba(255,255,255,0.15);padding-top:24px;
+    display:flex;gap:12px;align-items:center;flex-wrap:wrap;
+  }
+  .hero-tagline b{color:var(--gold-bright);font-weight:700;}
+
+  /* ---------- Section Scaffolding ---------- */
+  section{padding:96px 0;}
+  .section-head{max-width:720px;margin-bottom:48px;}
+  .section-eyebrow{
+    font-size:0.8rem;letter-spacing:0.18em;text-transform:uppercase;
+    color:var(--gold);font-weight:700;margin-bottom:12px;display:inline-block;position:relative;
+  }
+  .section-eyebrow::after{
+    content:"";position:absolute;right:0;bottom:-4px;height:2px;width:0;background:var(--gold);
+    transition:width .6s cubic-bezier(.16,.8,.3,1);transition-delay:.15s;
+  }
+  .reveal.in .section-eyebrow::after{width:40px;}
+  .section-head h2{
+    font-size:clamp(1.8rem, 3.2vw, 2.4rem);font-weight:800;letter-spacing:-0.01em;
+    margin-bottom:10px;line-height:1.25;
+  }
+  .section-head .en-subtitle{
+    font-size:1rem;color:var(--grey-mid);direction:ltr;text-align:right;font-weight:600;
+  }
+
+  /* ---------- Challenge Section ---------- */
+  .challenge-box{
+    background:var(--white);border:1px solid var(--grey-line);
+    border-right:4px solid var(--gold);padding:40px;margin-top:20px;
+    box-shadow:0 10px 30px -15px rgba(0,0,0,0.05);
+    transition:transform .4s ease, box-shadow .4s ease;
+  }
+  .challenge-box:hover{transform:translateY(-4px);box-shadow:0 18px 36px -18px rgba(0,0,0,0.08);}
+  .challenge-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:16px;margin-top:24px;}
+  .challenge-item{
+    background:var(--grey-bg);padding:16px;border-radius:2px;font-weight:600;font-size:0.95rem;
+    display:flex;align-items:center;gap:10px;color:var(--charcoal);
+    transition:transform .3s ease, background .3s ease;
+  }
+  .challenge-item:hover{transform:translateX(-4px);background:#e9e8e5;}
+  .challenge-item span{color:var(--gold);font-weight:800;}
+
+  /* ---------- Who We Are ---------- */
+  .who-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:56px;align-items:start;}
+  .who-copy p{color:var(--charcoal);margin-bottom:18px;font-size:1.05rem;line-height:1.8;}
+  .who-copy p.en{direction:ltr;text-align:left;font-size:0.98rem;color:var(--grey-mid);margin-bottom:24px;}
+  .manifesto-box{
+    background:var(--ink);color:var(--white);padding:32px;border-radius:2px;margin-top:28px;
+    border-right:4px solid var(--gold-bright);
+    transition:transform .4s ease, box-shadow .4s ease;
+  }
+  .manifesto-box:hover{transform:translateY(-4px);box-shadow:0 16px 36px -12px rgba(0,0,0,0.3);}
+  .manifesto-box div{font-weight:700;font-size:1.05rem;line-height:1.8;}
+
+  /* ---------- Practice Areas Grid ---------- */
+  .expertise-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .exp-card{
+    background:var(--white);border:1px solid var(--grey-line);padding:32px 28px;
+    display:flex;flex-direction:column;justify-content:space-between;
+    transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+    position:relative;
+  }
+  .exp-card::before{
+    content:"";position:absolute;top:0;right:0;height:3px;width:0;background:var(--gold);
+    transition:width .35s ease;
+  }
+  .exp-card:hover::before{width:100%;}
+  .exp-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 40px -18px rgba(0,0,0,0.12);
+    border-color:var(--grey-line);
+  }
+  .exp-card .idx{font-family:'Manrope',sans-serif;font-weight:800;color:var(--gold);font-size:1.2rem;margin-bottom:16px;transition:transform .3s ease;}
+  .exp-card:hover .idx{transform:scale(1.15) translateX(-4px);}
+  .exp-card h3{font-size:1.15rem;font-weight:700;margin-bottom:6px;}
+  .exp-card .en{font-size:0.9rem;color:var(--grey-mid);direction:ltr;text-align:right;margin-bottom:16px;font-weight:600;}
+  .exp-card p{font-size:0.92rem;color:var(--charcoal);line-height:1.6;}
+
+  /* ---------- ISO Section ---------- */
+  .iso-section{background:var(--charcoal);color:var(--white);}
+  .iso-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+  .iso-card{
+    border:1px solid rgba(255,255,255,0.14);background:rgba(255,255,255,0.02);padding:32px;
+    transition:all .35s ease;
+  }
+  .iso-card:hover{border-color:var(--gold-bright);background:rgba(255,255,255,0.04);transform:translateY(-6px);box-shadow:0 16px 32px -12px rgba(0,0,0,0.5);}
+  .iso-badge{
+    display:inline-block;background:var(--gold);color:#000;
+    font-size:0.8rem;font-weight:800;padding:4px 12px;border-radius:2px;margin-bottom:14px;
+    direction:ltr;transition:transform .3s ease;
+  }
+  .iso-card:hover .iso-badge{transform:scale(1.05);}
+  .iso-card h4{font-size:1.2rem;font-weight:700;margin-bottom:4px;color:var(--white);}
+  .iso-card .en{font-size:0.9rem;color:#b0b0b0;direction:ltr;text-align:right;margin-bottom:12px;}
+  .iso-card p{font-size:0.92rem;color:#d0d0d0;}
+
+  /* ---------- Diagnostics Section ---------- */
+  .diag-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .diag-card{
+    background:var(--grey-bg);border:1px solid var(--grey-line);padding:28px;
+    transition:all .35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .diag-card:hover{background:var(--white);border-color:var(--gold);transform:translateY(-6px);box-shadow:0 14px 28px -12px rgba(0,0,0,0.08);}
+  .diag-card h4{font-size:1.05rem;font-weight:700;margin-bottom:4px;}
+  .diag-card .en{font-size:0.85rem;color:var(--gold);direction:ltr;text-align:right;font-weight:700;margin-bottom:12px;}
+  .diag-card p{font-size:0.88rem;color:var(--grey-mid);}
+
+  /* ---------- Methodology ---------- */
+  .method-section{background:var(--ink);color:var(--white);}
+  .method-intro{
+    border-right:3px solid var(--gold-bright);padding-right:20px;margin-bottom:40px;
+    font-size:1.1rem;color:#e0e0e0;
+  }
+  .method-steps-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:16px;}
+  .method-box{
+    border:1px solid rgba(255,255,255,0.12);padding:24px;background:rgba(255,255,255,0.02);
+    position:relative;transition:all .35s ease;
+  }
+  .method-box:hover{border-color:var(--gold-bright);background:rgba(255,255,255,0.06);transform:translateY(-4px);}
+  .method-box .m-num{color:var(--gold-bright);font-weight:800;font-size:1.2rem;margin-bottom:12px;display:block;transition:transform .3s ease;}
+  .method-box:hover .m-num{transform:scale(1.2);}
+  .method-box h4{font-size:1rem;font-weight:700;margin-bottom:6px;}
+  .method-box .en{font-size:0.82rem;color:#999;direction:ltr;text-align:right;}
+
+  /* ---------- Project Journey Lifecycle ---------- */
+  .lifecycle-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .life-card{
+    background:var(--white);border:1px solid var(--grey-line);padding:20px;
+    display:flex;align-items:flex-start;gap:14px;
+    transition:all .3s ease;
+  }
+  .life-card:hover{transform:translateY(-3px);border-color:var(--gold);box-shadow:0 10px 20px -10px rgba(0,0,0,0.08);}
+  .life-num{
+    width:32px;height:32px;border-radius:50%;background:var(--grey-bg);
+    border:1.5px solid var(--gold);display:flex;align-items:center;justify-content:center;
+    font-weight:800;font-size:0.85rem;color:var(--gold);flex-shrink:0;transition:all .3s ease;
+  }
+  .life-card:hover .life-num{background:var(--gold);color:#000;}
+  .life-content h5{font-size:0.95rem;font-weight:700;margin-bottom:2px;}
+  .life-content .en{font-size:0.8rem;color:var(--grey-mid);direction:ltr;text-align:right;}
+
+  /* ---------- Quality Review Highlight ---------- */
+  .quality-highlight{
+    background:linear-gradient(135deg, var(--ink) 0%, var(--charcoal) 100%);
+    color:var(--white);padding:44px;border-radius:2px;margin-top:40px;
+    border-right:4px solid var(--gold-bright);
+    display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap;
+    transition:transform .4s ease, box-shadow .4s ease;
+  }
+  .quality-highlight:hover{transform:translateY(-4px);box-shadow:0 18px 40px -16px rgba(0,0,0,0.4);}
+  .quality-text h3{font-size:1.4rem;font-weight:800;margin-bottom:8px;}
+  .quality-text p{font-size:1rem;color:#cfcfcf;max-width:680px;}
+
+  /* ---------- Why GRAVION ---------- */
+  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .why-card{
+    background:var(--white);border:1px solid var(--grey-line);padding:32px 24px;
+    transition:all .35s ease;
+  }
+  .why-card:hover{transform:translateY(-6px);border-color:var(--gold);box-shadow:0 16px 32px -16px rgba(0,0,0,0.08);}
+  .why-card .w-num{font-weight:800;color:var(--gold);font-size:1.2rem;margin-bottom:12px;transition:transform .3s ease;}
+  .why-card:hover .w-num{transform:scale(1.15) translateX(-2px);}
+  .why-card h4{font-size:1.05rem;font-weight:700;margin-bottom:8px;}
+  .why-card p{font-size:0.9rem;color:var(--grey-mid);}
+
+  /* ---------- Contact & Final CTA ---------- */
+  .contact-section{background:var(--charcoal);color:var(--white);}
+  .contact-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:64px;}
+  .contact-copy h2{font-size:2.2rem;font-weight:800;margin-bottom:16px;}
+  .contact-copy p{color:#c9c9c9;margin-bottom:32px;font-size:1.05rem;}
+  .contact-direct{background:var(--white);color:var(--ink);padding:40px;display:flex;flex-direction:column;gap:18px;}
+  .contact-tile{
+    display:flex;align-items:center;gap:16px;
+    border:1px solid var(--grey-line);padding:20px 22px;
+    transition:all .3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .contact-tile:hover{border-color:var(--gold);background:var(--grey-bg);transform:translateY(-3px);box-shadow:0 8px 20px -8px rgba(0,0,0,0.1);}
+  .contact-tile .ci{
+    width:42px;height:42px;flex-shrink:0;border-radius:50%;
+    background:var(--ink);color:var(--white);
+    display:flex;align-items:center;justify-content:center;
+    transition:all .3s ease;
+  }
+  .contact-tile:hover .ci{background:var(--gold);color:#000;transform:scale(1.08);}
+  .contact-tile .ct-label{font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--grey-mid);font-weight:700;}
+  .contact-tile .ct-value{font-size:1.05rem;font-weight:700;color:var(--ink);direction:ltr;text-align:right;}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--ink);color:#9a9a9a;padding:48px 0 32px;font-size:0.9rem;}
+  .foot-top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;border-bottom:1px solid rgba(255,255,255,0.1);padding-bottom:28px;margin-bottom:24px;}
+  .foot-brand{display:flex;align-items:center;gap:12px;color:#fff;font-weight:800;direction:ltr;}
+  .foot-social{display:flex;gap:14px;}
+  .foot-social a{
+    width:38px;height:38px;border:1px solid rgba(255,255,255,0.2);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:700;
+    transition:all .3s ease;
+  }
+  .foot-social a:hover{border-color:var(--gold-bright);color:var(--gold-bright);transform:translateY(-3px);background:rgba(212,160,56,0.1);}
+  .foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+
+  /* ---------- Scroll Reveal & Animation Architecture ---------- */
+  .reveal{
+    opacity:0;
+    transform:translateY(32px);
+    transition:opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change:opacity, transform;
+  }
+  .reveal.in{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+  /* Sequenced Child Stagger Delays */
+  .stagger-container > .reveal:nth-child(1), .stagger-container > *:nth-child(1).reveal{transition-delay:0.05s;}
+  .stagger-container > .reveal:nth-child(2), .stagger-container > *:nth-child(2).reveal{transition-delay:0.12s;}
+  .stagger-container > .reveal:nth-child(3), .stagger-container > *:nth-child(3).reveal{transition-delay:0.19s;}
+  .stagger-container > .reveal:nth-child(4), .stagger-container > *:nth-child(4).reveal{transition-delay:0.26s;}
+  .stagger-container > .reveal:nth-child(5), .stagger-container > *:nth-child(5).reveal{transition-delay:0.33s;}
+  .stagger-container > .reveal:nth-child(6), .stagger-container > *:nth-child(6).reveal{transition-delay:0.40s;}
+  .stagger-container > .reveal:nth-child(7), .stagger-container > *:nth-child(7).reveal{transition-delay:0.47s;}
+  .stagger-container > .reveal:nth-child(8), .stagger-container > *:nth-child(8).reveal{transition-delay:0.54s;}
+  .stagger-container > .reveal:nth-child(9), .stagger-container > *:nth-child(9).reveal{transition-delay:0.61s;}
+
+  /* Responsive Adjustments */
+  @media (max-width:960px){
+    .who-grid,.contact-grid,.iso-grid,.expertise-grid,.diag-grid,.why-grid,.lifecycle-grid{grid-template-columns:1fr;}
+    .nav-links{display:none;}
+    .hero{padding:90px 0 70px;}
+    section{padding:72px 0;}
+    .quality-highlight{flex-direction:column;align-items:flex-start;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top">
+      <svg class="logo-mark" viewBox="0 0 500 500" aria-hidden="true">
+        <defs>
+          <linearGradient id="gL" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#F2D06B"/><stop offset="50%" stop-color="#D4A038"/><stop offset="100%" stop-color="#A8731F"/>
+          </linearGradient>
+          <radialGradient id="gD" cx="35%" cy="35%" r="65%">
+            <stop offset="0%" stop-color="#FFE89C"/><stop offset="100%" stop-color="#7A500F"/>
+          </radialGradient>
+          <linearGradient id="sL" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#FFFFFF"/><stop offset="50%" stop-color="#C5C8CC"/><stop offset="100%" stop-color="#8A9099"/>
+          </linearGradient>
+          <path id="rA" d="M -110,-72 A 132,132 0 0,1 110,-72" fill="none" stroke-width="18"/>
+        </defs>
+        <g transform="translate(250, 250)">
+          <circle r="22" fill="url(#gD)"/>
+          <use href="#rA" stroke="url(#gL)" transform="rotate(60)"/>
+          <use href="#rA" stroke="url(#sL)" transform="rotate(180)"/>
+          <use href="#rA" stroke="url(#sL)" transform="rotate(300)"/>
+          <g transform="rotate(0)">
+            <path d="M -22,-45 L -8,-58 L -8,-185 L -20,-185 L -20,-62 Z" fill="url(#gL)"/>
+            <path d="M 22,-45 L 8,-58 L 8,-185 L 20,-185 L 20,-62 Z" fill="url(#gL)"/>
+          </g>
+          <g transform="rotate(120)">
+            <path d="M -22,-45 L -8,-58 L -8,-185 L -20,-185 L -20,-62 Z" fill="url(#gL)"/>
+            <path d="M 22,-45 L 8,-58 L 8,-185 L 20,-185 L 20,-62 Z" fill="url(#gL)"/>
+          </g>
+          <g transform="rotate(240)">
+            <path d="M -22,-45 L -8,-58 L -8,-185 L -20,-185 L -20,-62 Z" fill="url(#sL)"/>
+            <path d="M 22,-45 L 8,-58 L 8,-185 L 20,-185 L 20,-62 Z" fill="url(#sL)"/>
+          </g>
+        </g>
+      </svg>
+      <div class="brand-text">
+        <span class="wordmark">GRAVION</span>
+        <span class="sub-tag">GRC &amp; Management Systems</span>
+      </div>
+    </a>
+    <nav class="nav-links">
+      <a href="#who">من نحن</a>
+      <a href="#areas">مجالات العمل</a>
+      <a href="#iso">أنظمة الإدارة ISO</a>
+      <a href="#diagnostics">التشخيص المؤسسي</a>
+      <a href="#methodology">المنهجية</a>
+      <a href="#why">لماذا GRAVION؟</a>
+    </nav>
+    <a class="nav-cta" href="#contact">ابدأ الحوار</a>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <svg class="hero-mark" viewBox="0 0 500 500" aria-hidden="true">
+    <g transform="translate(250, 250)">
+      <circle r="22" fill="#d4a038"/>
+      <path d="M -110,-72 A 132,132 0 0,1 110,-72" fill="none" stroke="#d4a038" stroke-width="18" transform="rotate(60)"/>
+      <path d="M -110,-72 A 132,132 0 0,1 110,-72" fill="none" stroke="#ffffff" stroke-width="18" transform="rotate(180)"/>
+      <path d="M -110,-72 A 132,132 0 0,1 110,-72" fill="none" stroke="#ffffff" stroke-width="18" transform="rotate(300)"/>
+      <g transform="rotate(0)">
+        <path d="M -22,-45 L -8,-58 L -8,-185 L -20,-185 L -20,-62 Z" fill="#d4a038"/>
+        <path d="M 22,-45 L 8,-58 L 8,-185 L 20,-185 L 20,-62 Z" fill="#d4a038"/>
+      </g>
+      <g transform="rotate(120)">
+        <path d="M -22,-45 L -8,-58 L -8,-185 L -20,-185 L -20,-62 Z" fill="#d4a038"/>
+        <path d="M 22,-45 L 8,-58 L 8,-185 L 20,-185 L 20,-62 Z" fill="#d4a038"/>
+      </g>
+      <g transform="rotate(240)">
+        <path d="M -22,-45 L -8,-58 L -8,-185 L -20,-185 L -20,-62 Z" fill="#ffffff"/>
+        <path d="M 22,-45 L 8,-58 L 8,-185 L 20,-185 L 20,-62 Z" fill="#ffffff"/>
+      </g>
+    </g>
+  </svg>
+  <div class="wrap hero-inner">
+    <div class="eyebrow reveal"><span class="dot"></span> GRAVION GRC &amp; MANAGEMENT SYSTEMS™</div>
+    <h1 class="reveal">We Build Systems That Work.</h1>
+    <p class="ar-lead ar reveal">نحوّل الحوكمة وإدارة المخاطر والامتثال والتدقيق ومتطلبات أنظمة الإدارة إلى حلول وأنظمة عملية قابلة للتطبيق والقياس والتحسين.</p>
+    <p class="lead reveal">We help organizations transform governance, risk, compliance, assurance and management requirements into practical, integrated and measurable systems that strengthen performance and support sustainable growth.</p>
+    <div class="hero-actions reveal">
+      <a class="btn btn-primary" href="#diagnostics">ابدأ بتشخيص واقع مؤسستك </a>
+      <a class="btn btn-ghost" href="#areas">اكتشف حلولنا </a>
+    </div>
+    <div class="hero-tagline reveal">
+      <span>نحن لا نبني وثائق فقط. <b>نحن نبني أنظمة تعمل.</b></span>
+      <span style="opacity: 0.5;">|</span>
+      <span class="en-text" style="font-size: 0.9rem;">We Don't Build Documents. We Build Systems That Work.</span>
+    </div>
+  </div>
+</section>
+
+<section id="challenge" style="background:var(--off-white);">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">التحدي المؤسسي</div>
+      <h2>A Standard Is Not a System.</h2>
+      <div class="en-subtitle">المعيار وحده لا يصنع نظامًا... المعيار يحدد المتطلبات، لكن النظام هو ما يجعلها تعمل في الواقع.</div>
+    </div>
+    <div class="challenge-box reveal">
+      <p style="font-size: 1.1rem; color: var(--charcoal); font-weight: 600;">امتلاك المؤسسة لملفات ومعايير لا يعني بالضرورة امتلاكها لنظام عملي فعّال. مجرد وجود:</p>
+      <div class="challenge-grid stagger-container">
+        <div class="challenge-item reveal"><span>✕</span> الشهادات (Certifications)</div>
+        <div class="challenge-item reveal"><span>✕</span> السياسات (Policies)</div>
+        <div class="challenge-item reveal"><span>✕</span> الإجراءات (Procedures)</div>
+        <div class="challenge-item reveal"><span>✕</span> سجلات المخاطر (Risk Registers)</div>
+        <div class="challenge-item reveal"><span>✕</span> متطلبات الامتثال (Compliance)</div>
+      </div>
+      <p style="margin-top:24px; color: var(--grey-mid); font-size: 1rem;">لا يضمن الفعالية المؤسسية ما لم تكن هذه العناصر مترابطة ضمن نظام متكامل يقود القرارات اليومية والأداء الفعلي.</p>
+    </div>
+  </div>
+</section>
+
+<section id="who">
+  <div class="wrap">
+    <div class="who-grid">
+      <div class="who-copy reveal">
+        <div class="section-eyebrow">من نحن؟</div>
+        <h2>We Help Organizations Build Systems That Work.</h2>
+        <p class="en">GRAVION GRC &amp; Management Systems™ is a specialized advisory firm that helps organizations strengthen the way they are governed, managed, controlled and improved.</p>
+        <p class="ar">نساعد المؤسسات على تحويل المتطلبات التنظيمية والإدارية والمعايير المهنية إلى أنظمة مترابطة وقابلة للتطبيق والقياس والتحسين. نحن لا نؤمن بأن السياسات أو الإجراءات أو الشهادات بمفردها تصنع الفعالية المؤسسية.</p>
+        <p class="ar">المؤسسة لا تصبح أكثر فعالية بمجرد امتلاك الوثائق، بل عندما تعمل هذه العناصر معًا كنظام متكامل يدعم المساءلة وجودة القرار والأداء المستدام.</p>
+      </div>
+      <div class="reveal">
+        <div class="manifesto-box">
+          <div style="color: var(--gold-bright); margin-bottom: 8px;" class="en-text">OUR CORE BELIEF</div>
+          <div>From Requirements to Reality.</div>
+          <div>From Documents to Systems.</div>
+          <div>From Compliance on Paper to Performance in Practice.</div>
+          <hr style="border:0; border-top:1px solid rgba(255,255,255,0.15); margin: 16px 0;">
+          <div style="font-size:0.95rem; font-weight:500; color:#ccc;">من المتطلبات إلى الواقع • من الوثائق إلى الأنظمة • من الامتثال الورقي إلى الأداء الفعلي</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="areas" style="background:var(--grey-bg);">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">مجالات العمل الرسمية</div>
+      <h2>OUR PRACTICE AREAS</h2>
+      <div class="en-subtitle">نعمل في تقاطع الحوكمة، إدارة المخاطر، الامتثال، وأنظمة الإدارة لبناء القدرة المؤسسية الشاملة.</div>
+    </div>
+    <div class="expertise-grid stagger-container">
+      
+      <div class="exp-card reveal">
+        <div>
+          <div class="idx">01</div>
+          <h3>Governance &amp; Institutional Excellence™</h3>
+          <div class="en">الحوكمة والتميز المؤسسي</div>
+          <p>بناء وتعزيز منظومات حوكمة واضحة تدعم المساءلة وجودة القرار والفعالية المؤسسية (Frameworks, Structures, Decision-Making, Accountability).</p>
+        </div>
+      </div>
+
+      <div class="exp-card reveal">
+        <div>
+          <div class="idx">02</div>
+          <h3>Compliance &amp; Regulatory Affairs™</h3>
+          <div class="en">الامتثال والشؤون التنظيمية</div>
+          <p>تحويل متطلبات الامتثال والتنظيم إلى منظومة عملية قابلة للتطبيق والمتابعة والقياس (Regulatory Mapping, Monitoring, Gap Assessments).</p>
+        </div>
+      </div>
+
+      <div class="exp-card reveal">
+        <div>
+          <div class="idx">03</div>
+          <h3>Enterprise Risk Management™</h3>
+          <div class="en">إدارة المخاطر المؤسسية</div>
+          <p>وجود سجل مخاطر لا يعني وجود إدارة فعالة. نساعد المؤسسة على تحويل المخاطر إلى عنصر فعلي في اتخاذ القرار (Risk Appetite, Registers, Controls).</p>
+        </div>
+      </div>
+
+      <div class="exp-card reveal">
+        <div>
+          <div class="idx">04</div>
+          <h3>Assurance &amp; Internal Audit™</h3>
+          <div class="en">التأكيد والتدقيق الداخلي</div>
+          <p>دعم أعمال التدقيق الداخلي وتقييم الضوابط الرقابية لضمان سلامة العمليات وملاءمتها للنطاق المحدد (Control Reviews, Audit Planning Support).</p>
+        </div>
+      </div>
+
+      <div class="exp-card reveal">
+        <div>
+          <div class="idx">05</div>
+          <h3>Management Systems &amp; ISO Solutions™</h3>
+          <div class="en">أنظمة الإدارة وحلول ISO</div>
+          <p>تحويل معايير ISO إلى أنظمة عمل حقيقية مدمجة في التشغيل اليومي تعزز الجودة والأداء والتحسين المستمر.</p>
+        </div>
+      </div>
+
+      <div class="exp-card reveal">
+        <div>
+          <div class="idx">06</div>
+          <h3>Training &amp; Capacity Building™</h3>
+          <div class="en">التدريب وبناء القدرات</div>
+          <p>لا نكتفي بنقل المعرفة، بل نساعد على بناء القدرات المؤسسية من خلال ورش عمل وبرامج مخصصة (We build organizational capability).</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="iso-section" id="iso">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-eyebrow" style="color:var(--gold-bright);">محور متكافئ وقوي</div>
+      <h2 style="color:var(--white);">Management Systems &amp; ISO Solutions™</h2>
+      <div class="en-subtitle" style="color:#a0a0a0;">المعايير الدولية المعتمدة رسمياً ضمن نطاق خدماتنا</div>
+    </div>
+    <div class="iso-grid stagger-container">
+      <div class="iso-card reveal">
+        <span class="iso-badge">ISO 9001:2015</span>
+        <h4>Quality Management Systems</h4>
+        <div class="en">نظم إدارة الجودة</div>
+        <p>بناء وتطوير أنظمة إدارة الجودة لضمان اتساق العمليات ورفع مستوى رضا العملاء والتحسين المستمر.</p>
+      </div>
+      <div class="iso-card reveal">
+        <span class="iso-badge">ISO 14001:2026</span>
+        <h4>Environmental Management Systems</h4>
+        <div class="en">نظم الإدارة البيئية</div>
+        <p>تمكين المؤسسات من إدارة مسؤولياتها البيئية بشكل منهجي يساهم في الاستدامة والامتثال التنظيمي.</p>
+      </div>
+      <div class="iso-card reveal">
+        <span class="iso-badge">ISO 45001:2018</span>
+        <h4>Occupational Health and Safety</h4>
+        <div class="en">نظم إدارة السلامة والصحة المهنية</div>
+        <p>توفير بيئات عمل آمنة وصحية من خلال حد المخاطر والوقاية من إصابات وحوادث العمل.</p>
+      </div>
+      <div class="iso-card reveal">
+        <span class="iso-badge">ISO 37001:2025</span>
+        <h4>Anti-Bribery Management Systems</h4>
+        <div class="en">نظم إدارة مكافحة الرشوة</div>
+        <p>تأسيس ضوابط ومنظومات مكافحة الرشوة وتعزيز النزاهة المؤسسية ضمن نطاق المعيار الدولي.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="diagnostics">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">كيف تبدأ مع GRAVION؟</div>
+      <h2>START WITH UNDERSTANDING YOUR REALITY</h2>
+      <div class="en-subtitle">ابدأ بفهم واقع مؤسستك — ليست كل المؤسسات بحاجة إلى الحل نفسه، لذلك نبدأ بفهم الواقع الحالي قبل تصميم المسار المناسب.</div>
+    </div>
+    <div class="diag-grid stagger-container">
+      <div class="diag-card reveal">
+        <h4>GRAVION GRC Diagnostic™</h4>
+        <div class="en">تشخيص شامل أولي للواقع المؤسسي</div>
+        <p>تقييم واقع الحوكمة والمخاطر والامتثال والضوابط الرقابية لتحديد نقاط القوة ومجالات التطوير.</p>
+      </div>
+      <div class="diag-card reveal">
+        <h4>Management Systems Diagnostic™</h4>
+        <div class="en">تشخيص أنظمة الإدارة</div>
+        <p>فحص مستوى فعالية أنظمة الإدارة الحالية ومدى مطابقتها واقترابها من الأهداف المؤسسية.</p>
+      </div>
+      <div class="diag-card reveal">
+        <h4>Gap Assessment™</h4>
+        <div class="en">تحليل الفجوات</div>
+        <p>تحليل دقيق للفجوات بين الوضع الحالي للمؤسسة والمتطلبات المعيارية أو التنظيمية المستهدفة.</p>
+      </div>
+      <div class="diag-card reveal">
+        <h4>Risk Assessment &amp; Mapping™</h4>
+        <div class="en">تقييم ورسم خريطة المخاطر</div>
+        <p>تحديد وتصنيف ورسم خريطة المخاطر المؤسسية وربطها بالضوابط والقرارات.</p>
+      </div>
+      <div class="diag-card reveal">
+        <h4>Systems Maturity Assessment™</h4>
+        <div class="en">تقييم نضج أنظمة الإدارة</div>
+        <p>قياس مستوى النضج التشغيلي والمؤسسي لأنظمة الإدارة القائمة لضمان التطوير المستمر.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="method-section" id="methodology">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-eyebrow" style="color:var(--gold-bright);">المنهجية المعتمدة</div>
+      <h2 style="color:var(--white);">How We Work — GRAVION G7™</h2>
+      <div class="en-subtitle" style="color:#aaa;">Every engagement follows a structured methodology designed to transform requirements into practical and measurable outcomes.</div>
+    </div>
+    <div class="method-intro reveal">
+      منهجية <strong>GRAVION G7™ Delivery Methodologies</strong> هي الإطار الهيكلي الموحد في كل وثائقنا وأعمالنا لضمان اتساق الجودة وتحويل المتطلبات إلى نتائج عملية قابلة للقياس.
+    </div>
+    <div class="method-steps-grid stagger-container">
+      <div class="method-box reveal">
+        <span class="m-num">01</span>
+        <h4>Understand</h4>
+        <div class="en">فهم الواقع والسياق</div>
+      </div>
+      <div class="method-box reveal">
+        <span class="m-num">02</span>
+        <h4>Design</h4>
+        <div class="en">تصميم الحلول والأنظمة</div>
+      </div>
+      <div class="method-box reveal">
+        <span class="m-num">03</span>
+        <h4>Integrate</h4>
+        <div class="en">دمج الحلول في عمليات العمل</div>
+      </div>
+      <div class="method-box reveal">
+        <span class="m-num">04</span>
+        <h4>Measure</h4>
+        <div class="en">قياس الفعالية والأثر</div>
+      </div>
+      <div class="method-box reveal">
+        <span class="m-num">05</span>
+        <h4>Improve</h4>
+        <div class="en">التحسين والتطوير المستمر</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="lifecycle">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">دورة حياة المشاريع</div>
+      <h2>THE GRAVION ENGAGEMENT JOURNEY</h2>
+      <div class="en-subtitle">رحلة العمل المحددة والمنظمة مع GRAVION</div>
+    </div>
+    <div class="lifecycle-grid stagger-container">
+      <div class="life-card reveal"><div class="life-num">1</div><div class="life-content"><h5>Initial Contact</h5><div class="en">التواصل الأولي</div></div></div>
+      <div class="life-card reveal"><div class="life-num">2</div><div class="life-content"><h5>Needs Assessment</h5><div class="en">فهم الاحتياج والتحدي</div></div></div>
+      <div class="life-card reveal"><div class="life-num">3</div><div class="life-content"><h5>Scope Definition</h5><div class="en">تحديد نطاق المهمة</div></div></div>
+      <div class="life-card reveal"><div class="life-num">4</div><div class="life-content"><h5>Proposal Submission</h5><div class="en">تقديم العرض</div></div></div>
+      <div class="life-card reveal"><div class="life-num">5</div><div class="life-content"><h5>Agreement &amp; Contracting</h5><div class="en">الاتفاق والتعاقد</div></div></div>
+      <div class="life-card reveal"><div class="life-num">6</div><div class="life-content"><h5>Project Kick-Off</h5><div class="en">إطلاق المشروع</div></div></div>
+      <div class="life-card reveal"><div class="life-num">7</div><div class="life-content"><h5>Delivery &amp; Implementation</h5><div class="en">التنفيذ وتسليم المراحل</div></div></div>
+      <div class="life-card reveal"><div class="life-num">8</div><div class="life-content"><h5>Independent Quality Review</h5><div class="en">مراجعة مستقلة للجودة</div></div></div>
+      <div class="life-card reveal"><div class="life-num">9</div><div class="life-content"><h5>Final Delivery</h5><div class="en">التسليم النهائي</div></div></div>
+    </div>
+
+    <div class="quality-highlight reveal">
+      <div class="quality-text">
+        <h3>Independent Quality Review — مراجعة مستقلة للجودة</h3>
+        <p class="ar">قبل التسليم النهائي، تخضع المخرجات الرئيسية للمشروع لمراجعة مستقلة للتحقق من الاتساق والاكتمال ومدى توافقها مع نطاق المهمة والمنهجية المعتمدة.</p>
+        <p class="en-text" style="font-size:0.88rem; color:#aaa; margin-top:6px; direction:ltr; text-align:right;">Before final delivery, key project outputs are subject to an independent quality review to assess consistency, completeness and alignment with the agreed scope and methodology.</p>
+      </div>
+      <div>
+        <span style="border:1px solid var(--gold-bright); padding:8px 16px; font-size:0.85rem; font-weight:700; color:var(--gold-bright);" class="en-text">Quality Control Beyond Delivery</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="why" style="background:var(--grey-bg);">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">عناصر التميز</div>
+      <h2>WHY GRAVION?</h2>
+      <div class="en-subtitle">لماذا تختار المؤسسات العمل مع GRAVION؟</div>
+    </div>
+    <div class="why-grid stagger-container">
+      <div class="why-card reveal">
+        <div class="w-num">01</div>
+        <h4>Systems, Not Documents</h4>
+        <p>نركز على بناء أنظمة قابلة للعمل في الواقع التشغيلي اليومي، وليس مجرد إنتاج وثائق ورقية.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="w-num">02</div>
+        <h4>Integrated Thinking</h4>
+        <p>نربط الحوكمة والمخاطر والامتثال والضوابط وأنظمة الإدارة بدل التعامل معها كجزر منفصلة.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="w-num">03</div>
+        <h4>Designed for Reality</h4>
+        <p>لا نقدم نموذجًا واحدًا جاهزًا للجميع، بل نراعي واقع المؤسسة وطبيعة عملياتها واحتياجاتها الفعلية.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="w-num">04</div>
+        <h4>Quality Built into Delivery</h4>
+        <p>الجودة جزء أصيل من طريقة تنفيذ المهمة ومراجعة مخرجاتها، وليست مرحلة شكلية في نهايتها.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="w-num">05</div>
+        <h4>Measurable Improvement</h4>
+        <p>نركز على النتائج القابلة للقياس والتحسين المؤسسي المستمر ذي الأثر الواضح.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="w-num">06</div>
+        <h4>Reference Standards Context</h4>
+        <p>استخدام الأطر المرجعية مثل COSO ضمن سياقها الصحيح كمرجع لإدارة المخاطر والرقابة الداخلية دون خلط في الخدمات.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact-section" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="contact-copy reveal">
+        <div class="section-eyebrow" style="color:var(--gold-bright);">التواصل والخطوة الأولى</div>
+        <h2>Let’s Understand Your Challenge.</h2>
+        <div style="font-weight:700; font-size:1.1rem; color:#fff; margin-bottom:12px;">لنبدأ بفهم تحدي مؤسستكم.</div>
+        <p class="ar">سواء كانت مؤسستكم تسعى إلى تعزيز الحوكمة، تطوير إدارة المخاطر، رفع مستوى الامتثال، مراجعة الضوابط الرقابية أو تطوير نظام إدارة، فإن الخطوة الأولى تبدأ بفهم الواقع الحالي.</p>
+        <p class="en-text" style="font-size:0.92rem; color:#aaa; direction:ltr; text-align:right;">Whether you are strengthening governance, improving risk management, enhancing compliance, reviewing internal controls or developing a management system, the first step is understanding where you are today.</p>
+      </div>
+      <div class="contact-direct reveal">
+        <div style="font-size:0.8rem; letter-spacing:0.15em; font-weight:800; color:var(--gold);" class="en-text">START A CONVERSATION</div>
+        <a class="contact-tile" href="tel:+213778338981">
+          <span class="ci" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </span>
+          <div>
+            <div class="ct-label">Phone / الهاتف</div>
+            <div class="ct-value">+213 778 33 89 81</div>
+          </div>
+        </a>
+        <a class="contact-tile" href="mailto:grc.contact.dz@gmail.com">
+          <span class="ci" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+          </span>
+          <div>
+            <div class="ct-label">Email / البريد الإلكتروني</div>
+            <div class="ct-value">grc.contact.dz@gmail.com</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <div class="foot-brand">
+          <svg class="logo-mark" viewBox="0 0 500 500" width="28" height="28" aria-hidden="true">
+            <g transform="translate(250, 250)">
+              <circle r="22" fill="#d4a038"/>
+              <path d="M -110,-72 A 132,132 0 0,1 110,-72" fill="none" stroke="#d4a038" stroke-width="18" transform="rotate(60)"/>
+              <path d="M -110,-72 A 132,132 0 0,1 110,-72" fill="none" stroke="#8a9099" stroke-width="18" transform="rotate(180)"/>
+              <path d="M -110,-72 A 132,132 0 0,1 110,-72" fill="none" stroke="#8a9099" stroke-width="18" transform="rotate(300)"/>
+              <g transform="rotate(0)">
+                <path d="M -22,-45 L -8,-58 L -8,-185 L -20,-185 L -20,-62 Z" fill="#d4a038"/>
+                <path d="M 22,-45 L 8,-58 L 8,-185 L 20,-185 L 20,-62 Z" fill="#d4a038"/>
+              </g>
+              <g transform="rotate(120)">
+                <path d="M -22,-45 L -8,-58 L -8,-185 L -20,-185 L -20,-62 Z" fill="#d4a038"/>
+                <path d="M 22,-45 L 8,-58 L 8,-185 L 20,-185 L 20,-62 Z" fill="#d4a038"/>
+              </g>
+              <g transform="rotate(240)">
+                <path d="M -22,-45 L -8,-58 L -8,-185 L -20,-185 L -20,-62 Z" fill="#8a9099"/>
+                <path d="M 22,-45 L 8,-58 L 8,-185 L 20,-185 L 20,-62 Z" fill="#8a9099"/>
+              </g>
+            </g>
+          </svg>
+          <span>GRAVION GRC &amp; MANAGEMENT SYSTEMS™</span>
+        </div>
+        <div style="font-size:0.82rem; color:#777; margin-top:6px;" class="en-text">Governance • Risk • Compliance • Management Systems</div>
+      </div>
+      <div class="foot-social">
+        <a href="https://www.linkedin.com/in/gravion-grc-b95686430" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 GRAVION GRC &amp; Management Systems™. All Rights Reserved.</span>
+      <span class="en-text" style="color:#eee;">Where <b style="color:var(--gold-bright);">Trust</b> Meets <b style="color:var(--gold-bright);">Excellence</b>.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Header shrink on scroll
+  var header = document.querySelector('header');
+  function updateHeader(){
+    if(window.scrollY > 12){ header.classList.add('scrolled'); }
+    else { header.classList.remove('scrolled'); }
+  }
+  document.addEventListener('scroll', updateHeader, {passive:true});
+
+  // Smooth Reveal-on-scroll Architecture
+  if(reduceMotion){
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { 
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  }
+
+  // Hero cursor-tracked spotlight
+  if(!reduceMotion){
+    var hero = document.querySelector('.hero');
+    if(hero){
+      hero.addEventListener('mousemove', function(e){
+        var r = hero.getBoundingClientRect();
+        var mx = ((e.clientX - r.left) / r.width) * 100;
+        var my = ((e.clientY - r.top) / r.height) * 100;
+        hero.style.setProperty('--mx', mx + '%');
+        hero.style.setProperty('--my', my + '%');
+      }, {passive:true});
+    }
+  }
+})();
+</script>
+</body>
+</html>
