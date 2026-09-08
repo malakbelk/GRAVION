@@ -246,6 +246,41 @@
   .iso-card .en{font-size:0.9rem;color:#b0b0b0;direction:ltr;text-align:right;margin-bottom:12px;}
   .iso-card p{font-size:0.92rem;color:#d0d0d0;}
 
+  /* ---------- Who We Serve ---------- */
+  .serve-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(190px, 1fr));gap:14px;}
+  .serve-item{
+    background:var(--white);border:1px solid var(--grey-line);padding:18px 20px;
+    font-weight:600;font-size:0.95rem;color:var(--charcoal);
+    transition:transform .3s ease, border-color .3s ease, background .3s ease;
+  }
+  .serve-item .en-text{display:block;direction:ltr;text-align:right;}
+  .serve-item .ar{display:block;color:var(--grey-mid);font-size:0.85rem;margin-top:2px;font-weight:500;}
+  .serve-item:hover{transform:translateY(-3px);border-color:var(--gold);background:var(--grey-bg);}
+
+  /* ---------- Typical Deliverables ---------- */
+  .deliver-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));gap:14px;}
+  .deliver-item{
+    background:var(--grey-bg);border:1px solid var(--grey-line);padding:16px 18px;
+    display:flex;align-items:center;gap:10px;font-weight:600;font-size:0.92rem;color:var(--charcoal);
+    transition:transform .3s ease, background .3s ease;
+  }
+  .deliver-item:hover{transform:translateX(-4px);background:#e9e8e5;}
+  .deliver-item span{color:var(--gold);font-weight:800;flex-shrink:0;}
+
+  /* ---------- Professional Foundation ---------- */
+  .foundation-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+  .foundation-card{
+    background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.12);padding:28px;
+    transition:all .35s ease;
+  }
+  .foundation-card:hover{border-color:var(--gold-bright);background:rgba(255,255,255,0.05);transform:translateY(-4px);}
+  .foundation-card h4{font-size:1.05rem;font-weight:700;margin-bottom:8px;color:var(--white);}
+  .foundation-card p{font-size:0.9rem;color:#c0c0c0;}
+  .foundation-note{
+    margin-top:32px;border-top:1px solid rgba(255,255,255,0.15);padding-top:20px;
+    font-size:0.88rem;color:#999;
+  }
+
   /* ---------- Diagnostics Section ---------- */
   .diag-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
   .diag-card{
@@ -380,7 +415,7 @@
 
   @media (max-width:960px){
     .wrap{padding:0 20px;}
-    .who-grid,.contact-grid,.iso-grid,.expertise-grid,.diag-grid,.why-grid,.lifecycle-grid{grid-template-columns:1fr;}
+    .who-grid,.contact-grid,.iso-grid,.expertise-grid,.diag-grid,.why-grid,.lifecycle-grid,.foundation-grid{grid-template-columns:1fr;}
     .contact-grid{gap:36px;}
     .hero{padding:80px 0 60px;}
     section{padding:60px 0;}
@@ -480,9 +515,11 @@
       <nav class="nav-links">
         <a href="#who">من نحن</a>
         <a href="#areas">مجالات العمل</a>
+        <a href="#serve">من نخدم</a>
         <a href="#iso">أنظمة الإدارة ISO</a>
         <a href="#diagnostics">التشخيص المؤسسي</a>
         <a href="#methodology">المنهجية</a>
+        <a href="#foundation">أساسنا المهني</a>
         <a href="#why">لماذا GRAVION؟</a>
       </nav>
       <a class="nav-cta" href="#contact">ابدأ الحوار</a>
@@ -514,16 +551,20 @@
   <div class="wrap hero-inner">
     <div class="eyebrow reveal"><span class="dot"></span> GRAVION GRC &amp; MANAGEMENT SYSTEMS™</div>
     <h1 class="reveal">We Build Systems That Work.</h1>
-    <p class="ar-lead ar reveal">نحوّل الحوكمة وإدارة المخاطر والامتثال والتدقيق ومتطلبات أنظمة الإدارة إلى حلول وأنظمة عملية قابلة للتطبيق والقياس والتحسين.</p>
-    <p class="lead reveal">We help organizations transform governance, risk, compliance, assurance and management requirements into practical, integrated and measurable systems that strengthen performance and support sustainable growth.</p>
+    <div class="hero-focus reveal" style="font-weight:800; font-size:1.05rem; color:var(--gold-bright); letter-spacing:0.01em; margin-bottom:16px;">
+      <span class="ar">الحوكمة. المخاطر. الامتثال. التأكيد. أنظمة الإدارة.</span>
+      <span class="en-text" style="display:block; direction:ltr; text-align:left; font-size:0.92rem; color:#e7c46a; margin-top:2px;">Governance. Risk. Compliance. Assurance. Management Systems.</span>
+    </div>
+    <p class="ar-lead ar reveal">نساعد المؤسسات على تحويل المتطلبات إلى أنظمة عملية ومتكاملة وقابلة للقياس تعزز جودة القرار والأداء والنمو المستدام.</p>
+    <p class="lead reveal">We help organizations turn requirements into practical, integrated and measurable systems that strengthen decision-making, performance and sustainable growth.</p>
     <div class="hero-actions reveal">
       <a class="btn btn-primary" href="#diagnostics">ابدأ بتشخيص واقع مؤسستك </a>
-      <a class="btn btn-ghost" href="#areas">اكتشف حلولنا </a>
+      <a class="btn btn-ghost" href="#areas">اكتشف مجالات عملنا </a>
     </div>
     <div class="hero-tagline reveal">
-      <span>نحن لا نبني وثائق فقط. <b>نحن نبني أنظمة تعمل.</b></span>
+      <span>أين تلتقي <b>الثقة</b> بـ<b>التميز</b>.</span>
       <span class="hero-tagline-divider" style="opacity: 0.5;">|</span>
-      <span class="en-text" style="font-size: 0.9rem;">We Don't Build Documents. We Build Systems That Work</span>
+      <span class="en-text" style="font-size: 0.9rem;">Where Trust Meets Excellence.</span>
     </div>
   </div>
 </section>
@@ -555,18 +596,15 @@
       <div class="who-copy reveal">
         <div class="section-eyebrow">من نحن؟</div>
         <h2>We Help Organizations Build Systems That Work</h2>
-        <p class="en">GRAVION GRC &amp; Management Systems™ is a specialized advisory firm that helps organizations strengthen the way they are governed, managed, controlled and improved.</p>
-        <p class="ar">نساعد المؤسسات على تحويل المتطلبات التنظيمية والإدارية والمعايير المهنية إلى أنظمة مترابطة وقابلة للتطبيق والقياس والتحسين. نحن لا نؤمن بأن السياسات أو الإجراءات أو الشهادات بمفردها تصنع الفعالية المؤسسية.</p>
-        <p class="ar">المؤسسة لا تصبح أكثر فعالية بمجرد امتلاك الوثائق، بل عندما تعمل هذه العناصر معًا كنظام متكامل يدعم المساءلة وجودة القرار والأداء المستدام.</p>
+        <p class="en">GRAVION GRC &amp; Management Systems™ is a specialized advisory practice that helps organizations strengthen the way they are governed, managed, controlled and improved.</p>
+        <p class="ar">نساعد المؤسسات على تحويل المتطلبات التنظيمية والإدارية والمعايير المهنية إلى أنظمة مترابطة وقابلة للتطبيق والقياس والتحسين، بحيث تعمل هذه العناصر معًا كمنظومة واحدة تدعم المساءلة وجودة القرار.</p>
       </div>
       <div class="reveal">
         <div class="manifesto-box">
           <div style="color: var(--gold-bright); margin-bottom: 8px;" class="en-text">OUR CORE BELIEF</div>
-          <div>From Requirements to Reality</div>
-          <div>From Documents to Systems</div>
-          <div>From Compliance on Paper to Performance in Practice</div>
+          <div>From Compliance on Paper to Performance in Practice.</div>
           <hr style="border:0; border-top:1px solid rgba(255,255,255,0.15); margin: 16px 0;">
-          <div style="font-size:0.95rem; font-weight:500; color:#ccc;">من المتطلبات إلى الواقع • من الوثائق إلى الأنظمة • من الامتثال الورقي إلى الأداء الفعلي</div>
+          <div style="font-size:0.95rem; font-weight:500; color:#ccc;">من الامتثال الورقي إلى الأداء الفعلي.</div>
         </div>
       </div>
     </div>
@@ -636,6 +674,61 @@
         </div>
       </div>
 
+      <div class="exp-card reveal">
+        <div>
+          <div class="idx">07</div>
+          <h3>Digital Solutions™</h3>
+          <div class="en">الحلول الرقمية</div>
+          <p>تطوير حلول رقمية عملية تدعم أنظمة الإدارة، ووضوح المخاطر، ومتابعة الامتثال، والرقابة التشغيلية، والتحسين المستمر (Risk Visibility, Compliance Monitoring, Operational Control)</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="serve">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">من نخدم</div>
+      <h2>WHO WE SERVE</h2>
+      <div class="en-subtitle">نُكيّف منهجيتنا وفق قطاع المؤسسة وبيئتها التنظيمية ودرجة تعقيد عملياتها ومستوى نضجها.</div>
+    </div>
+    <div class="serve-grid stagger-container">
+      <div class="serve-item reveal"><span class="en-text">Public Institutions</span><span class="ar">مؤسسات عمومية</span></div>
+      <div class="serve-item reveal"><span class="en-text">Government &amp; Regulatory Bodies</span><span class="ar">جهات حكومية وتنظيمية</span></div>
+      <div class="serve-item reveal"><span class="en-text">Industrial Organizations</span><span class="ar">مؤسسات صناعية</span></div>
+      <div class="serve-item reveal"><span class="en-text">Energy &amp; Mining</span><span class="ar">الطاقة والمناجم</span></div>
+      <div class="serve-item reveal"><span class="en-text">Financial &amp; Banking Institutions</span><span class="ar">مؤسسات مالية ومصرفية</span></div>
+      <div class="serve-item reveal"><span class="en-text">Insurance</span><span class="ar">التأمين</span></div>
+      <div class="serve-item reveal"><span class="en-text">Healthcare</span><span class="ar">الصحة</span></div>
+      <div class="serve-item reveal"><span class="en-text">Education</span><span class="ar">التعليم</span></div>
+      <div class="serve-item reveal"><span class="en-text">Technology &amp; Startups</span><span class="ar">التكنولوجيا والشركات الناشئة</span></div>
+      <div class="serve-item reveal"><span class="en-text">NGOs &amp; Development Organizations</span><span class="ar">منظمات غير حكومية وتنموية</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="deliverables" style="background:var(--grey-bg);">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">ماذا تحصل عليه</div>
+      <h2>TYPICAL DELIVERABLES</h2>
+      <div class="en-subtitle">مخرجات ملموسة تنتقل بالمؤسسة من "امتلاك الخبرة" إلى "تحقيق نتائج تنظيمية فعلية".</div>
+    </div>
+    <div class="deliver-grid stagger-container">
+      <div class="deliver-item reveal"><span>—</span> Governance Frameworks</div>
+      <div class="deliver-item reveal"><span>—</span> Risk Registers &amp; Risk Maps</div>
+      <div class="deliver-item reveal"><span>—</span> Compliance Maps</div>
+      <div class="deliver-item reveal"><span>—</span> Policies &amp; Procedures</div>
+      <div class="deliver-item reveal"><span>—</span> Control Frameworks</div>
+      <div class="deliver-item reveal"><span>—</span> Management System Architecture</div>
+      <div class="deliver-item reveal"><span>—</span> KPI &amp; Monitoring Frameworks</div>
+      <div class="deliver-item reveal"><span>—</span> Audit &amp; Assurance Plans</div>
+      <div class="deliver-item reveal"><span>—</span> Training Programs</div>
+      <div class="deliver-item reveal"><span>—</span> Maturity Assessments</div>
+      <div class="deliver-item reveal"><span>—</span> Improvement Roadmaps</div>
+      <div class="deliver-item reveal"><span>—</span> Digital Monitoring Solutions</div>
     </div>
   </div>
 </section>
@@ -649,10 +742,10 @@
     </div>
     <div class="iso-grid stagger-container">
       <div class="iso-card reveal">
-        <span class="iso-badge">ISO 9001:2015</span>
+        <span class="iso-badge">ISO 9001:2015 — Current Edition</span>
         <h4>Quality Management Systems</h4>
         <div class="en">نظم إدارة الجودة</div>
-        <p>بناء وتطوير أنظمة إدارة الجودة لضمان اتساق العمليات ورفع مستوى رضا العملاء والتحسين المستمر.</p>
+        <p>بناء وتطوير أنظمة إدارة الجودة لضمان اتساق العمليات ورفع مستوى رضا العملاء والتحسين المستمر. تتابع GRAVION التحديثات المرتقبة للمعيار وتواكب أي إصدار جديد فور اعتماده رسميًا.</p>
       </div>
       <div class="iso-card reveal">
         <span class="iso-badge">ISO 14001:2026</span>
@@ -673,15 +766,24 @@
         <p>تأسيس ضوابط ومنظومات مكافحة الرشوة وتعزيز النزاهة المؤسسية ضمن نطاق المعيار الدولي.</p>
       </div>
     </div>
+    <div class="reveal" style="margin-top:32px; border-top:1px solid rgba(255,255,255,0.15); padding-top:20px; font-size:0.88rem; color:#999;">
+      <p class="ar" style="color:#999;">تقدّم GRAVION خدمات الاستشارة والدعم في التنفيذ فقط. تتم عمليات الاعتماد (Certification) بشكل مستقل من قبل هيئات اعتماد معتمدة.</p>
+      <p class="en-text" style="direction:ltr; text-align:left; margin-top:4px;">GRAVION provides advisory and implementation support. Certification is performed independently by accredited certification bodies.</p>
+    </div>
   </div>
 </section>
 
 <section id="diagnostics">
   <div class="wrap">
     <div class="section-head reveal">
-      <div class="section-eyebrow">كيف تبدأ مع GRAVION؟</div>
-      <h2>START WITH UNDERSTANDING YOUR REALITY</h2>
-      <div class="en-subtitle">ابدأ بفهم واقع مؤسستك — ليست كل المؤسسات بحاجة إلى الحل نفسه، لذلك نبدأ بفهم الواقع الحالي قبل تصميم المسار المناسب.</div>
+      <div class="section-eyebrow">بوابة الدخول إلى GRAVION</div>
+      <h2>START WITH UNDERSTANDING</h2>
+      <div class="en-subtitle">We don't begin by prescribing a solution. We begin by understanding the organization.</div>
+    </div>
+    <div class="challenge-box reveal" style="margin-bottom:40px;">
+      <p style="font-size:1.05rem; font-weight:700; color:var(--charcoal);">Diagnose → Prioritize → Define the Right Path</p>
+      <p class="ar" style="margin-top:12px; color:var(--grey-mid); font-size:0.98rem;">يبدأ كل تكليف بفهم منظم لواقع المؤسسة الحالي، وأولوياتها، ونقاط ضعفها، وأهدافها — قبل تحديد أي حل أو مسار عمل.</p>
+      <p class="en-text" style="margin-top:6px; color:var(--grey-mid); font-size:0.9rem; direction:ltr; text-align:left;">Every engagement begins with a structured understanding of the organization's current reality, priorities, vulnerabilities and objectives.</p>
     </div>
     <div class="diag-grid stagger-container">
       <div class="diag-card reveal">
@@ -718,36 +820,46 @@
     <div class="section-head reveal">
       <div class="section-eyebrow" style="color:var(--gold-bright);">المنهجية المعتمدة</div>
       <h2 style="color:var(--white);">How We Work — GRAVION G7™</h2>
-      <div class="en-subtitle" style="color:#aaa;">Every engagement follows a structured methodology designed to transform requirements into practical and measurable outcomes</div>
+      <div class="en-subtitle" style="color:#aaa;">GRAVION G7™ Delivery Methodology — How we transform requirements into operational systems.</div>
     </div>
     <div class="method-intro reveal">
-      منهجية <strong>GRAVION G7™ Delivery Methodologies</strong> هي الإطار الهيكلي الموحد في كل وثائقنا وأعمالنا لضمان اتساق الجودة وتحويل المتطلبات إلى نتائج عملية قابلة للقياس.
+      منهجية <strong>GRAVION G7™ Delivery Methodology</strong> هي الإطار الهيكلي الموحد لتنفيذ أعمالنا، وتتكون من سبع مراحل تضمن اتساق الجودة وتحويل المتطلبات إلى نتائج عملية قابلة للقياس.
     </div>
     <div class="method-steps-grid stagger-container">
       <div class="method-box reveal">
         <span class="m-num">01</span>
-        <h4>Understand</h4>
-        <div class="en">فهم الواقع والسياق</div>
+        <h4>Discover</h4>
+        <div class="en">فهم المؤسسة وسياقها واتجاهها الاستراتيجي</div>
       </div>
       <div class="method-box reveal">
         <span class="m-num">02</span>
-        <h4>Design</h4>
-        <div class="en">تصميم الحلول والأنظمة</div>
+        <h4>Diagnose</h4>
+        <div class="en">تقييم الحوكمة والمخاطر والامتثال والضوابط ونضج أنظمة الإدارة</div>
       </div>
       <div class="method-box reveal">
         <span class="m-num">03</span>
-        <h4>Integrate</h4>
-        <div class="en">دمج الحلول في عمليات العمل</div>
+        <h4>Design</h4>
+        <div class="en">تصميم البنية والإطار والنموذج المستهدف</div>
       </div>
       <div class="method-box reveal">
         <span class="m-num">04</span>
-        <h4>Measure</h4>
-        <div class="en">قياس الفعالية والأثر</div>
+        <h4>Develop</h4>
+        <div class="en">تطوير السياسات والعمليات والضوابط والأدوات والقدرات</div>
       </div>
       <div class="method-box reveal">
         <span class="m-num">05</span>
+        <h4>Implement</h4>
+        <div class="en">دمج النظام في العمليات الفعلية وصناعة القرار</div>
+      </div>
+      <div class="method-box reveal">
+        <span class="m-num">06</span>
+        <h4>Verify</h4>
+        <div class="en">قياس الفعالية ومراجعة الضوابط وتقييم الأداء وتحديد الفجوات</div>
+      </div>
+      <div class="method-box reveal">
+        <span class="m-num">07</span>
         <h4>Improve</h4>
-        <div class="en">التحسين والتطوير المستمر</div>
+        <div class="en">تعزيز النظام وتكييفه وتحسينه بشكل مستمر</div>
       </div>
     </div>
   </div>
@@ -758,7 +870,7 @@
     <div class="section-head reveal">
       <div class="section-eyebrow">دورة حياة المشاريع</div>
       <h2>THE GRAVION ENGAGEMENT JOURNEY</h2>
-      <div class="en-subtitle">رحلة العمل المحددة والمنظمة مع GRAVION</div>
+      <div class="en-subtitle">How we work with our clients from first conversation to final delivery.</div>
     </div>
     <div class="lifecycle-grid stagger-container">
       <div class="life-card reveal"><div class="life-num">1</div><div class="life-content"><h5>Initial Contact</h5><div class="en">التواصل الأولي</div></div></div>
@@ -768,15 +880,15 @@
       <div class="life-card reveal"><div class="life-num">5</div><div class="life-content"><h5>Agreement &amp; Contracting</h5><div class="en">الاتفاق والتعاقد</div></div></div>
       <div class="life-card reveal"><div class="life-num">6</div><div class="life-content"><h5>Project Kick-Off</h5><div class="en">إطلاق المشروع</div></div></div>
       <div class="life-card reveal"><div class="life-num">7</div><div class="life-content"><h5>Delivery &amp; Implementation</h5><div class="en">التنفيذ وتسليم المراحل</div></div></div>
-      <div class="life-card reveal"><div class="life-num">8</div><div class="life-content"><h5>Independent Quality Review</h5><div class="en">مراجعة مستقلة للجودة</div></div></div>
+      <div class="life-card reveal"><div class="life-num">8</div><div class="life-content"><h5>GRAVION Quality Review™</h5><div class="en">مراجعة الجودة</div></div></div>
       <div class="life-card reveal"><div class="life-num">9</div><div class="life-content"><h5>Final Delivery</h5><div class="en">التسليم النهائي</div></div></div>
     </div>
 
     <div class="quality-highlight reveal">
       <div class="quality-text">
-        <h3>Independent Quality Review — مراجعة مستقلة للجودة</h3>
-        <p class="ar">قبل التسليم النهائي، تخضع المخرجات الرئيسية للمشروع لمراجعة مستقلة للتحقق من الاتساق والاكتمال ومدى توافقها مع نطاق المهمة والمنهجية المعتمدة.</p>
-        <p class="en-text" style="font-size:0.88rem; color:#aaa; margin-top:6px; direction:ltr; text-align:right;">Before final delivery, key project outputs are subject to an independent quality review to assess consistency, completeness and alignment with the agreed scope and methodology</p>
+        <h3>GRAVION Quality Review™ — مراجعة الجودة</h3>
+        <p class="ar">قبل التسليم النهائي، تخضع المخرجات الرئيسية للمشروع لمراجعة جودة منظمة للتحقق من الاتساق والاكتمال ومدى توافقها مع نطاق المهمة والمنهجية المعتمدة.</p>
+        <p class="en-text" style="font-size:0.88rem; color:#aaa; margin-top:6px; direction:ltr; text-align:right;">Key project outputs undergo a structured quality review before final delivery to assess consistency, completeness and alignment with the agreed scope and methodology.</p>
       </div>
       <div>
         <span style="border:1px solid var(--gold-bright); padding:8px 16px; font-size:0.85rem; font-weight:700; color:var(--gold-bright);" class="en-text">Quality Control Beyond Delivery</span>
@@ -786,18 +898,46 @@
   </div>
 </section>
 
+<section class="method-section" id="foundation">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-eyebrow" style="color:var(--gold-bright);">أساسنا المهني</div>
+      <h2 style="color:var(--white);">OUR PROFESSIONAL FOUNDATION</h2>
+      <div class="en-subtitle" style="color:#aaa;">ما يمنح عملنا مصداقيته — دون ادعاء خبرة غير موجودة.</div>
+    </div>
+    <div class="foundation-grid stagger-container">
+      <div class="foundation-card reveal">
+        <h4>Specialized Academic Foundation</h4>
+        <p>Governance, Anti-Corruption, Risk &amp; Management Systems.</p>
+      </div>
+      <div class="foundation-card reveal">
+        <h4>Methodological Foundation</h4>
+        <p>GRAVION G7™ Delivery Methodology.</p>
+      </div>
+      <div class="foundation-card reveal">
+        <h4>Reference Frameworks</h4>
+        <p>ISO Management System Standards • Risk Management • Internal Control • Governance &amp; Compliance Frameworks.</p>
+      </div>
+      <div class="foundation-card reveal">
+        <h4>Practice Orientation</h4>
+        <p>Designed around institutional reality, operational integration and measurable improvement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="why" style="background:var(--grey-bg);">
   <div class="wrap">
     <div class="section-head reveal">
       <div class="section-eyebrow">عناصر التميز</div>
-      <h2>WHY GRAVION /h2>
+      <h2>WHY GRAVION</h2>
       <div class="en-subtitle">لماذا تختار المؤسسات العمل مع GRAVION</div>
     </div>
     <div class="why-grid stagger-container">
       <div class="why-card reveal">
         <div class="w-num">01</div>
-        <h4>Systems, Not Documents</h4>
-        <p>نركز على بناء أنظمة قابلة للعمل في الواقع التشغيلي اليومي، وليس مجرد إنتاج وثائق ورقية.</p>
+        <h4>Built for Operations</h4>
+        <p>نصمم حلولاً قابلة للتطبيق ضمن العمليات التشغيلية اليومية للمؤسسة، وليست مجرد أطر نظرية.</p>
       </div>
       <div class="why-card reveal">
         <div class="w-num">02</div>
@@ -839,7 +979,7 @@
         <p class="en-text" style="font-size:0.92rem; color:#aaa; direction:ltr; text-align:right;">Whether you are strengthening governance, improving risk management, enhancing compliance, reviewing internal controls or developing a management system, the first step is understanding where you are today.</p>
       </div>
       <div class="contact-direct reveal">
-        <div style="font-size:0.8rem; letter-spacing:0.15em; font-weight:800; color:var(--gold);" class="en-text">START A CONVERSATION</div>
+        <div style="font-size:0.8rem; letter-spacing:0.15em; font-weight:800; color:var(--gold);" class="en-text">DISCUSS YOUR CHALLENGE</div>
         <a class="contact-tile" href="tel:+213778338981">
           <span class="ci" aria-hidden="true">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
@@ -849,13 +989,22 @@
             <div class="ct-value">+213 778 33 89 81</div>
           </div>
         </a>
-        <a class="contact-tile" href="mailto:grc.contact.dz@gmail.com">
+        <a class="contact-tile" href="mailto:contact@graviongrc.com">
           <span class="ci" aria-hidden="true">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
           </span>
           <div>
             <div class="ct-label">Email / البريد الإلكتروني</div>
-            <div class="ct-value">grc.contact.dz@gmail.com</div>
+            <div class="ct-value">contact@graviongrc.com</div>
+          </div>
+        </a>
+        <a class="contact-tile" href="https://www.linkedin.com/in/gravion-grc-b95686430" target="_blank" rel="noopener">
+          <span class="ci" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </span>
+          <div>
+            <div class="ct-label">LinkedIn</div>
+            <div class="ct-value">GRAVION GRC</div>
           </div>
         </a>
       </div>
