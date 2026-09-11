@@ -350,6 +350,31 @@
   .why-card h4{font-size:1.05rem;font-weight:700;margin-bottom:8px;}
   .why-card p{font-size:0.9rem;color:var(--grey-mid);}
 
+  /* ---------- Resource Library ---------- */
+  .resource-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:16px;}
+  .resource-card{
+    background:var(--white);border:1px solid var(--grey-line);border-radius:2px;
+    padding:22px 22px;display:flex;align-items:center;gap:16px;
+    transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+  }
+  .resource-card:hover{transform:translateY(-4px);border-color:var(--gold);box-shadow:0 14px 28px -14px rgba(0,0,0,0.12);}
+  .resource-icon{
+    width:44px;height:44px;flex-shrink:0;border-radius:2px;background:var(--ink);color:var(--gold-bright);
+    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.7rem;letter-spacing:0.02em;
+    transition:all .3s ease;
+  }
+  .resource-card:hover .resource-icon{background:var(--gold);color:#000;}
+  .resource-body{flex:1;min-width:0;}
+  .resource-body h4{font-size:0.98rem;font-weight:700;margin-bottom:2px;color:var(--ink);}
+  .resource-body .ar{font-size:0.85rem;color:var(--grey-mid);font-weight:600;}
+  .resource-dl{
+    flex-shrink:0;font-size:0.78rem;font-weight:700;color:var(--ink);
+    border:1px solid var(--grey-line);padding:8px 14px;border-radius:2px;
+    white-space:nowrap;transition:all .3s ease;direction:ltr;
+  }
+  .resource-card:hover .resource-dl{background:var(--ink);color:var(--white);border-color:var(--ink);}
+  .resource-note{margin-top:24px;color:var(--grey-mid);font-size:0.88rem;}
+
   /* ---------- Contact & Final CTA ---------- */
   .contact-section{background:var(--charcoal);color:var(--white);}
   .contact-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:64px;}
@@ -520,6 +545,7 @@
         <a href="#diagnostics">التشخيص المؤسسي</a>
         <a href="#methodology">المنهجية</a>
         <a href="#foundation">أساسنا المهني</a>
+        <a href="#resources">المكتبة الرقمية</a>
         <a href="#why">لماذا GRAVION؟</a>
       </nav>
       <a class="nav-cta" href="#contact">ابدأ الحوار</a>
@@ -964,6 +990,102 @@
         <h4>Reference Standards Context</h4>
         <p>استخدام الأطر المرجعية مثل COSO ضمن سياقها الصحيح كمرجع لإدارة المخاطر والرقابة الداخلية دون خلط في الخدمات.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="resources" style="background:var(--grey-bg);">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">مكتبة GRAVION الرقمية</div>
+      <h2>RESOURCE LIBRARY</h2>
+      <div class="en-subtitle">وثائق مرجعية تشرح منهجيتنا وخدماتنا بالتفصيل — متاحة للاطلاع والتحميل مباشرة.</div>
+    </div>
+    <div class="resource-grid stagger-container">
+      <a class="resource-card reveal" href="resources/company-profile.pdf" target="_blank" rel="noopener">
+        <span class="resource-icon">PDF</span>
+        <div class="resource-body">
+          <h4>Company Profile™</h4>
+          <div class="ar">الملف التعريفي للشركة</div>
+        </div>
+        <span class="resource-dl">View / عرض</span>
+      </a>
+      <a class="resource-card reveal" href="resources/gravion-framework.pdf" target="_blank" rel="noopener">
+        <span class="resource-icon">PDF</span>
+        <div class="resource-body">
+          <h4>GRAVION Framework™</h4>
+          <div class="ar">إطار عمل GRAVION</div>
+        </div>
+        <span class="resource-dl">View / عرض</span>
+      </a>
+      <a class="resource-card reveal" href="resources/g7-delivery-methodologies.pdf" target="_blank" rel="noopener">
+        <span class="resource-icon">PDF</span>
+        <div class="resource-body">
+          <h4>G7™ Delivery Methodology</h4>
+          <div class="ar">منهجية التنفيذ G7</div>
+        </div>
+        <span class="resource-dl">View / عرض</span>
+      </a>
+      <a class="resource-card reveal" href="resources/gravion-business-operating-system-bos.pdf" target="_blank" rel="noopener">
+        <span class="resource-icon">PDF</span>
+        <div class="resource-body">
+          <h4>GRAVION Business Operating System™ (BOS™)</h4>
+          <div class="ar">نظام التشغيل المؤسسي</div>
+        </div>
+        <span class="resource-dl">View / عرض</span>
+      </a>
+      <a class="resource-card reveal" href="resources/gravion-governance-methodology.pdf" target="_blank" rel="noopener">
+        <span class="resource-icon">PDF</span>
+        <div class="resource-body">
+          <h4>Governance Methodology™</h4>
+          <div class="ar">منهجية الحوكمة</div>
+        </div>
+        <span class="resource-dl">View / عرض</span>
+      </a>
+      <a class="resource-card reveal" href="resources/gravion-risk-management-methodology.pdf" target="_blank" rel="noopener">
+        <span class="resource-icon">PDF</span>
+        <div class="resource-body">
+          <h4>Risk Management Methodology™</h4>
+          <div class="ar">منهجية إدارة المخاطر</div>
+        </div>
+        <span class="resource-dl">View / عرض</span>
+      </a>
+      <a class="resource-card reveal" href="resources/gravion-compliance-methodology.pdf" target="_blank" rel="noopener">
+        <span class="resource-icon">PDF</span>
+        <div class="resource-body">
+          <h4>Compliance Methodology™</h4>
+          <div class="ar">منهجية الامتثال</div>
+        </div>
+        <span class="resource-dl">View / عرض</span>
+      </a>
+      <a class="resource-card reveal" href="resources/management-systems-iso-solutions.pdf" target="_blank" rel="noopener">
+        <span class="resource-icon">PDF</span>
+        <div class="resource-body">
+          <h4>Management Systems &amp; ISO Solutions™</h4>
+          <div class="ar">أنظمة الإدارة وحلول ISO</div>
+        </div>
+        <span class="resource-dl">View / عرض</span>
+      </a>
+      <a class="resource-card reveal" href="resources/audit-assurance.pdf" target="_blank" rel="noopener">
+        <span class="resource-icon">PDF</span>
+        <div class="resource-body">
+          <h4>Audit &amp; Assurance™</h4>
+          <div class="ar">التدقيق والتأكيد</div>
+        </div>
+        <span class="resource-dl">View / عرض</span>
+      </a>
+      <a class="resource-card reveal" href="resources/learning-professional-development.pdf" target="_blank" rel="noopener">
+        <span class="resource-icon">PDF</span>
+        <div class="resource-body">
+          <h4>Learning &amp; Professional Development™</h4>
+          <div class="ar">التعلّم والتطوير المهني</div>
+        </div>
+        <span class="resource-dl">View / عرض</span>
+      </a>
+    </div>
+    <div class="resource-note reveal">
+      <p class="ar">تُفتح جميع الوثائق في نافذة جديدة، ويمكن تحميلها للاطلاع دون اتصال بالإنترنت.</p>
+      <p class="en-text" style="direction:ltr; text-align:left; margin-top:4px;">All documents open in a new tab and can be downloaded for offline reading.</p>
     </div>
   </div>
 </section>
